@@ -26,16 +26,17 @@ module.exports = function(app) {
 
         for (var i = 0; i < friendsData.length; i++) {
             var checkFriend = friendsData[i];
-            newDiff = 0;
+            newDifference = 0;
             console.log(checkFriend);
             for (var j = 0; j < checkFriend.scores.length; j++) {
                 var checkFriendAnswers = checkFriend.scores[j];
                 var currentUserAnswers = friendScores[j];
-                newDiff += Math.abs(parseInt(currentUserAnswers) - parseInt(checkFriendAnswers));
-                console.log(newDiff)
+                newDifference += Math.abs(parseInt(currentUserAnswers) - parseInt(checkFriendAnswers));
+                console.log(newDifference)
             }
-            if (newDiff <= bestDifference) {
+            if (newDifference <= bestDifference) {
                 match = checkFriend;
+                bestDifference = newDifference;
                 // console.log("================= ", match);
 
             }
